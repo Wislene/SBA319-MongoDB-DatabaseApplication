@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Dance Classes
+  ul
+    each danceClass in danceClasses
+      li
+        a(href=`/danceClasses/${danceClass._id}`) #{danceClass.name} - #{danceClass.level}
+  a(href='/danceClasses/new') Add New Dance Class

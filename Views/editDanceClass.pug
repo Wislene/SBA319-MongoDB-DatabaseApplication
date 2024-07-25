@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Edit Dance Class
+  form(action=`/danceClasses/${danceClass._id}?_method=PATCH`, method='POST')
+    div
+      label(for='name') Dance Class Name:
+      input(type='text', name='name', id='name', value=danceClass.name, required)
+    div
+      label(for='level') Level:
+      select(name='level', id='level', required)
+        option(value='Beginner' selected=danceClass.level === 'Beginner') Beginner
+        option(value='Intermediate' selected=danceClass.level === 'Intermediate') Intermediate
+        option(value='Advanced' selected=danceClass.level === 'Advanced') Advanced
+        option(value='Professional' selected=danceClass.level === 'Professional') Professional
+    div
+      button(type='submit') Update Dance Class
