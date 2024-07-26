@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const danceClassSchema = new mongoose.Schema({
-  name: {
+  ClassName: {
     type: String,
     required: true,
   },
@@ -14,4 +14,6 @@ const danceClassSchema = new mongoose.Schema({
 
 const DanceClass = mongoose.model('DanceClass', danceClassSchema);
 
-module.exports = DanceClass;
+// module.exports = DanceClass; I receive an error statign that it needs an export named default
+
+export default DanceClass;

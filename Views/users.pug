@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Users
+  ul
+    each user in users
+      li
+        a(href=`/users/${user._id}`) #{user.username} - #{user.age} years old
+  a(href='/users/new') Add New User
+
+

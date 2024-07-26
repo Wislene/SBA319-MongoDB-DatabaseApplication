@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 #{user.username}
+  p Age: #{user.age} years old
+  a(href=`/users/${user._id}/edit`) Edit
+  form(action=`/users/${user._id}?_method=DELETE`, method='POST')
+    button(type='submit') Delete

@@ -1,8 +1,7 @@
-import User from "../Models/UserModel";
-
+import User from "../models/userModel.mjs";
 
 // GET all users
-exports.getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
     res.render("users", { users });
@@ -12,7 +11,7 @@ exports.getAllUsers = async (req, res) => {
 };
 
 // GET user by ID
-exports.getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     res.render("user", { user });
@@ -22,7 +21,7 @@ exports.getUserById = async (req, res) => {
 };
 
 // POST create a new user
-exports.createUser = async (req, res) => {
+export const createUser = async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
@@ -33,7 +32,7 @@ exports.createUser = async (req, res) => {
 };
 
 // PUT/PATCH update a user
-exports.updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -45,7 +44,7 @@ exports.updateUser = async (req, res) => {
 };
 
 // DELETE a user
-exports.deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
     res.redirect("/users");

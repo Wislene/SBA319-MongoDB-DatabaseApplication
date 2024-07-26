@@ -1,38 +1,44 @@
 import express from "express";
 import mongoose from "mongoose";
-import bodyParser from 'body-parser';
-
-import path from "path";
-import { fileURLToPath } from "url";
-import DanceClass from "./Models/DanceClassModel"
-import Users from "./Models/UserModel"
-import methodOverride from "method-override";
-import ConnectDB from "./db/conn.mjs"
-
 import dotenv from "dotenv";
 dotenv.config();
+import pug from "pug";
+import morgan from "morgan";
+import methodOverride from "method-override";
+import errorHandler from "./Middlewares/errorHandler.js"
+import seedRoutes from "./Routes/seedRoutes.mjs";
+import userRoutes from "./Routes/userRoutes.mjs";
+import classRoutes from "./Routes/classRoutes.mjs";
 
 const app = express();
 
+const router = express.Router();
+
+// import bodyParser from 'body-parser'; no longer needed to use body-parser because express comes with its own parser
+
+import path from "path";
+import { fileURLToPath } from "url";
+
 app.use(express.json());
 
-// // Connect to MongoDB
-// mongoose.connect("mongodb://localhost/blog", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-
-// connect to Mongoose
-mongoose.connect(process.env.ATLAS_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-
+// connect to Mongoose/DB
+mongoose
+  .connect(process.env.ATLAS_URI, {
+    // useNewUrlParser: true, -I removed because it says that this is a deprecated feature 
+    // useUnifiedTopology: true, -I removed because it says that this is a deprecated feature 
+  })
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB", err);
+  });
 
 // Filename and --dirname
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
+const __dirname = path.dirname("./index.mjs");
 
 // Error handling for JSON parsing
 app.use((err, req, res, next) => {
@@ -45,25 +51,29 @@ app.use((err, req, res, next) => {
   next();
 });
 
-
 // Middleware
-app.use(express.json());
-app.use(express.static('public'))
+
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.set("view engine", "pug");
+app.set("views", "./Views");
 app.set("views", path.join(__dirname, "views"));
+app.use(errorHandler);
+
+//Using Morgan for logging requests
+app.use(morgan('dev'));
+
 
 //  Routes
-app.use("./Routes/UsersRoutes.js);
-app.use("./Routes/DanceClassRoutes.js");
 
+app.use("/users", userRoutes);
+app.use("/class", classRoutes);
+app.use("/", seedRoutes);
 
-import UserRoutes from "Routes/UsersRoutes.js";
-import DanceClassRoutes from "Routes/DanceClassRoutes.js";
-
-// app.use("/users", userRoutes);
-app.use("/danceClasses", danceClassRoutes);
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 // Start server
 const PORT = process.env.PORT || 5050;

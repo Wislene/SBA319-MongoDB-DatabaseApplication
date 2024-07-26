@@ -4,8 +4,8 @@ block content
   h1 Edit Dance Class
   form(action=`/danceClasses/${danceClass._id}?_method=PATCH`, method='POST')
     div
-      label(for='name') Dance Class Name:
-      input(type='text', name='name', id='name', value=danceClass.name, required)
+      label(for='className') Dance Class Name:
+      input(type='text', name='className', id='className', value=danceClass.className, required)
     div
       label(for='level') Level:
       select(name='level', id='level', required)
