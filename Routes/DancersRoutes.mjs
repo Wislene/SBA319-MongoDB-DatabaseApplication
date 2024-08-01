@@ -5,14 +5,14 @@
 //   getUserById,
 //   updateUser,
 //   deleteUser,
-// } from "../controllers/userControllers.mjs";
+// } from "../Controllers/dancerController.mjs";
 
 // const router = express.Router();
 
 // router.get("/", getAllUsers);
 // router.post("/", createUser);
 // router.get("/new", (req, res) => {
-//   res.render("newUser"); // Ensure this view exists
+//   res.render("newUser");
 // });
 // router.get("/:id", getUserById);
 // router.get("/:id/edit", async (req, res) => {

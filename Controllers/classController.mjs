@@ -1,4 +1,4 @@
-import Class from "../models/classModel.mjs";
+import Class from "../Models/classModel.mjs";
 
 // Render form to create new class
 export const renderNewClassForm = (req, res) => {

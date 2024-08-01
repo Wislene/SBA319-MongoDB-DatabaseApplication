@@ -4,11 +4,13 @@ import dotenv from "dotenv";
 dotenv.config();
 import pug from "pug";
 import morgan from "morgan";
-import cors from 'cors';
+import cors from "cors";
+
+// import db from './config/db.mjs';
 import methodOverride from "method-override";
-import errorHandler from "./Middlewares/errorHandler.js"
-import logRequests from './Middlewares/errorHandler.js';
-import seedRoutes from "./Routes/seedRoutes.mjs";
+import errorHandler from "./Middlewares/errorHandler.js";
+import logRequests from "./Middlewares/errorHandler.js";
+import seedRoutes from "./routes/seedRoutes.mjs";
 import dancersRoutes from "./Routes/dancersRoutes.mjs";
 import classRoutes from "./Routes/ classRoutes.mjs";
 
@@ -26,14 +28,15 @@ app.use(express.json());
 // connect to Mongoose/DB
 mongoose
   .connect(process.env.ATLAS_URI, {
-    // useNewUrlParser: true, -I removed because it says that this is a deprecated feature 
-    // useUnifiedTopology: true, -I removed because it says that this is a deprecated feature 
+    // useNewUrlParser: true, -I removed because it says that this is a deprecated feature
+    // useUnifiedTopology: true, -I removed because it says that this is a deprecated feature
   })
-  .then(() => {
+  .then((con) => {
+    console.log(con.connection)
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
-    console.error("Failed to connect to MongoDB", error);
+    console.error("Failed to connect to MongoDB", err);
   });
 
 // Filename and --dirname
@@ -66,14 +69,13 @@ app.use(logRequests);
 app.use(cors());
 
 //Using Morgan for logging requests
-app.use(morgan('dev'));
-
+app.use(morgan("dev"));
 
 //  Routes
 
 app.use("/dancers", dancersRoutes);
 app.use("/class", classRoutes);
-app.use('/seed', seedRoutes);
+app.use("/seed", seedRoutes);
 // app.use("/", seedRoutes);
 
 app.get("/", (req, res) => {

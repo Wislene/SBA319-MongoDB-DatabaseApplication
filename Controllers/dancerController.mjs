@@ -1,9 +1,10 @@
-import Dancer from "../models/dancerModel.mjs";
+import Dancers from "../Models/dancersModel.mjs";
 
 // GET all dancers
 export const getAllDancers = async (req, res) => {
   try {
-    const dancers = await Dancer.find();
+    const dancers = await Dancers.find();
+    console.log(dancers, "test")
     res.render("dancers", { dancers });
   } catch (error) {
     res.status(500).json({ message: error.message });

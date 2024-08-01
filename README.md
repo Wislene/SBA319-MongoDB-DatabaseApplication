@@ -13,6 +13,6 @@ This web application is designed for managing dance classes and dancers at the F
 - Error Handling: Centralized error handling for better debugging and user feedback.
 - CSS tyling: Basic styling for a visually appealing interface.
 
-\***_ Import Notice _**
+**\*_ Important Notice _**
 
 You must have your own MongDB account URI in order to be able to see information from this database. Otherwise, you can use GET/seed/classes or GET/seed/dancers to see example sample Data versus pulling live students and classes data.

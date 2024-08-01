@@ -2,8 +2,9 @@ extends layout
 
 block content
   h1 Dancers
+  - console.log(dancers)
   ul
-    each dancer in Dancers
+    each dancer in dancers
       li
        a(href=`/dancers/${dancer._id}`) #{dancer.username} - #{dancer.age} years old
   a(href='/dancers/new') Add New Dancer

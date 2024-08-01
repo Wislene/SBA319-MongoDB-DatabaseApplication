@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const ClassSchema = new mongoose.Schema({
-  ClassName: {
+  className: {
     type: String,
     required: true,
   },
