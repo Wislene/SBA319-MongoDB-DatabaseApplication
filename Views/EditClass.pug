@@ -1,17 +1,17 @@
 extends layout
 
 block content
-  h1 Edit Dance Class
-  form(action=`/danceClasses/${danceClass._id}?_method=PATCH`, method='POST')
+  h1 Edit Class
+  form(action=`/classes/${classItem._id}?_method=PATCH`, method='POST')
     div
-      label(for='className') Dance Class Name:
-      input(type='text', name='className', id='className', value=danceClass.className, required)
+      label(for='className') Class Name:
+      input(type='text', name='className', id='className', value=classItem.className, required)
     div
       label(for='level') Level:
       select(name='level', id='level', required)
-        option(value='Beginner' selected=danceClass.level === 'Beginner') Beginner
-        option(value='Intermediate' selected=danceClass.level === 'Intermediate') Intermediate
-        option(value='Advanced' selected=danceClass.level === 'Advanced') Advanced
-        option(value='Professional' selected=danceClass.level === 'Professional') Professional
+        option(value='Beginner' selected=classItem.level === 'Beginner') Beginner
+        option(value='Intermediate' selected=classItem.level === 'Intermediate') Intermediate
+        option(value='Advanced' selected=classItem.level === 'Advanced') Advanced
+        option(value='Professional' selected=classItem.level === 'Professional') Professional
     div
-      button(type='submit') Update Dance Class
+      button(type='submit') Update Class

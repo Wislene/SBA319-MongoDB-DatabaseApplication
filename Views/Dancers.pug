@@ -1,11 +1,10 @@
 extends layout
 
 block content
-  h1 Users
+  h1 Dancers
   ul
-    each user in users
+    each dancer in Dancers
       li
-        a(href=`/users/${user._id}`) #{user.username} - #{user.age} years old
-  a(href='/users/new') Add New User
-
+       a(href=`/dancers/${dancer._id}`) #{dancer.username} - #{dancer.age} years old
+  a(href='/dancers/new') Add New Dancer
 

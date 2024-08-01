@@ -4,15 +4,15 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title #{title || 'Freedom Dance Studio'}
-    link(rel="stylesheet", href="../public/styles.css")
+    link(rel="stylesheet", href="/styles.css")
   body
     header
       h1 Freedom Dance Studio
       nav
         ul
           li: a(href="/") Home
-          li: a(href="/classes") Dance Classes
-          li: a(href="/users") Users
+          li: a(href="/classes") Classes
+          li: a(href="/dancers") Dancers
     main
       block content
     footer

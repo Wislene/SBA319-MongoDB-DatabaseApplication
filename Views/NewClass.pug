@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  h1 Add New Dance Class
-  form(action='/danceClasses', method='POST')
+  h1 Add New Class
+  form(action='/classes', method='POST')
     div
-      label(for='className') Dance Class Name:
+      label(for='className') Class Name:
       input(type='text', name='className', id='className', required)
     div
       label(for='level') Level:
@@ -14,7 +14,8 @@ block content
         option(value='Advanced') Advanced
         option(value='Professional') Professional
     div
-      button(type='submit') Add Dance Class
+      button(type='submit') Add Class
+
 
 
 

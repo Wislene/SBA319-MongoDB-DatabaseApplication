@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  h1 Dance Classes
+  h1 Classes
   ul
-    each danceClass in danceClasses
+    each classItem in classes
       li
-        a(href=`/danceClasses/${danceClass._id}`) #{danceClass.className} - #{danceClass.level}
-  a(href='/danceClasses/new') Add New Dance Class
+        a(href=`/classes/${classItem._id}`) #{classItem.className} - #{classItem.level}
+  a(href='/classes/new') Add New Class

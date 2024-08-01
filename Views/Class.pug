@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  h1 #{danceClass.className}
-  p Level: #{danceClass.level}
-  a(href=`/danceClasses/${danceClass._id}/edit`) Edit
-  form(action=`/danceClasses/${danceClass._id}?_method=DELETE`, method='POST')
+  h1 #{classItem.className}
+  p Level: #{classItem.level}
+  a(href=`/classes/${classItem._id}/edit`) Edit
+  form(action=`/classes/${classItem._id}?_method=DELETE`, method='POST')
     button(type='submit') Delete
+

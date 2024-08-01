@@ -6,9 +6,10 @@ import pug from "pug";
 import morgan from "morgan";
 import methodOverride from "method-override";
 import errorHandler from "./Middlewares/errorHandler.js"
-import seedRoutes from "./Routes/seedRoutes.mjs";
-import userRoutes from "./Routes/dancersRoutes.mjs";
-import classRoutes from "./Routes/classRoutes.mjs";
+import logRequests from './middleware/logRequests.js';
+import seedRoutes from './routes/seedRoutes.mjs';
+import dancersRoutes from "./Routes/dancersRoutes.mjs";
+import classRoutes from "./Routes/ classRoutes.mjs";
 
 const app = express();
 
@@ -31,7 +32,7 @@ mongoose
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
-    console.error("Failed to connect to MongoDB", err);
+    console.error("Failed to connect to MongoDB", error);
   });
 
 // Filename and --dirname
@@ -60,6 +61,7 @@ app.set("view engine", "pug");
 app.set("views", "./Views");
 app.set("views", path.join(__dirname, "views"));
 app.use(errorHandler);
+app.use(logRequests);
 
 //Using Morgan for logging requests
 app.use(morgan('dev'));
@@ -69,7 +71,8 @@ app.use(morgan('dev'));
 
 app.use("/dancers", dancersRoutes);
 app.use("/class", classRoutes);
-app.use("/", seedRoutes);
+app.use('/seed', seedRoutes);
+// app.use("/", seedRoutes);
 
 app.get("/", (req, res) => {
   res.render("index");

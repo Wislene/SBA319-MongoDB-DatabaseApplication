@@ -30,19 +30,19 @@
 
 import express from "express";
 import {
-  getAllUsers,
-  createUser,
-  getUserById,
-  updateUser,
-  deleteUser,
-} from "../Controllers/userController.mjs";
+  getAllDancers,
+  createDancer,
+  getDancerById,
+  updateDancer,
+  deleteDancer
+} from "../Controllers/dancerController.mjs";
 
 const router = express.Router();
 
-router.get("/", getAllUsers);
-router.post("/", createUser);
-router.get("/:id", getUserById);
-router.patch("/:id", updateUser);
-router.delete("/:id", deleteUser);
+router.get("/", getAllDancers);
+router.post("/", createDancer);
+router.get("/:id", getDancerById);
+router.patch("/:id", updateDancer);
+router.delete("/:id", deleteDancer);
 
 export default router;

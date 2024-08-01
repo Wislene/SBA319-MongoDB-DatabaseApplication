@@ -11,7 +11,7 @@ const DancersSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-const User = mongoose.model("Dancers", DancersSchema);
+const Dancers = mongoose.model("Dancers", DancersSchema);
 
 export default Dancers;
 

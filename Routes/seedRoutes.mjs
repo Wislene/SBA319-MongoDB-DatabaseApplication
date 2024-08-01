@@ -1,11 +1,11 @@
 import express from "express";
-import DanceClass from "../models/classModel.mjs";
-import Dancers from "../Models/DancersModel";
+import Class from "../Models/classModel.mjs";
+import Dancer from "../Models/dancersModel.mjs";
 
 const router = express.Router();
 
 // Seed route for classes
-router.get("../Routes/classRoutes.mjs", async (req, res) => {
+router.get("/seed/classes", async (req, res) => {
   try {
     await Class.create([
       { className: "Ballroom Dance for Beginners", level: "Beginner" },
@@ -19,16 +19,16 @@ router.get("../Routes/classRoutes.mjs", async (req, res) => {
       { className: "Intermediate Ballet", level: "Intermediate" },
       { className: "Intermediate Ballroom Dance", level: "Intermediate" }
     ]);
-    res.redirect("/Class");
+    res.redirect("/Classes");
   } catch (error) {
     console.error(error);
   }
 });
 
 // Seed route for dancers
-router.get("../Routes/dancersRoutes.mjs", async (req, res) => {
+router.get("/seed/dancers", async (req, res) => {
   try {
-    await User.create([
+    await Dancer.create([
       { username: "Michaëlle Jean", age: 17 },
       { username: "Wyclef Jean", age: 20 },
       { username: "Jean-Michel Basquiat", age: 18 },
@@ -40,7 +40,7 @@ router.get("../Routes/dancersRoutes.mjs", async (req, res) => {
       { username: "Ellen DeGeneres", age: 14 },
       { username: "Portia de Rossi", age: 19 }
     ]);
-    res.redirect("/users");
+    res.redirect("/dancers");
   } catch (error) {
     console.error(error);
   }
