@@ -1,13 +1,13 @@
 import express from "express";
 import DanceClass from "../models/classModel.mjs";
-import User from "../models/userModel.mjs";
+import Dancers from "../Models/DancersModel";
 
 const router = express.Router();
 
-// Seed route for dance classes
-router.get("/danceClasses/seed", async (req, res) => {
+// Seed route for classes
+router.get("../Routes/classRoutes.mjs", async (req, res) => {
   try {
-    await DanceClass.create([
+    await Class.create([
       { className: "Ballroom Dance for Beginners", level: "Beginner" },
       { className: "Ballet for Beginners", level: "Beginner" },
       { className: "Contemporary Dance Basics", level: "Beginner" },
@@ -19,14 +19,14 @@ router.get("/danceClasses/seed", async (req, res) => {
       { className: "Intermediate Ballet", level: "Intermediate" },
       { className: "Intermediate Ballroom Dance", level: "Intermediate" }
     ]);
-    res.redirect("/danceClasses");
+    res.redirect("/Class");
   } catch (error) {
     console.error(error);
   }
 });
 
-// Seed route for users
-router.get("/users/seed", async (req, res) => {
+// Seed route for dancers
+router.get("../Routes/dancersRoutes.mjs", async (req, res) => {
   try {
     await User.create([
       { username: "Michaëlle Jean", age: 17 },

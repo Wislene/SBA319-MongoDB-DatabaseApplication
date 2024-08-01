@@ -1,12 +1,12 @@
-// [
-//   { "username": "Michaëlle Jean", "age": 17 },
-//   { "username": "Wyclef Jean", "age": 20 },
-//   { "username": "Jean-Michel Basquiat", "age": 18 },
-//   { "username": "Edwidge Danticat", "age": 16 },
-//   { "username": "Garcelle Beauvais", "age": 15 },
-//   { "username": "Herbie Lovebug Azor", "age": 17 },
-//   { "username": "Jason Derulo", "age": 19 },
-//   { "username": "Frank Ocean", "age": 21 },
-//   { "username": "Ellen DeGeneres", "age": 14 },
-//   { "username": "Portia de Rossi", "age": 19 }
-// ]
+[
+  { "username": "Michaëlle Jean", "age": 17 },
+  { "username": "Wyclef Jean", "age": 20 },
+  { "username": "Jean-Michel Basquiat", "age": 18 },
+  { "username": "Edwidge Danticat", "age": 16 },
+  { "username": "Garcelle Beauvais", "age": 15 },
+  { "username": "Herbie Lovebug Azor", "age": 17 },
+  { "username": "Jason Derulo", "age": 19 },
+  { "username": "Frank Ocean", "age": 21 },
+  { "username": "Ellen DeGeneres", "age": 14 },
+  { "username": "Portia de Rossi", "age": 19 }
+]

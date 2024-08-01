@@ -1,12 +1,12 @@
-// [
-//   { "className": "Ballroom Dance for Beginners", "level": "Beginner" },
-//   { "className": "Ballet for Beginners", "level": "Beginner" },
-//   { "className": "Contemporary Dance Basics", "level": "Beginner" },
-//   { "className": "Folk Dance Basics", "level": "Beginner" },
-//   { "className": "Hip Hop Basics", "level": "Beginner" },
-//   { "className": "Jazz Dance for Beginners", "level": "Beginner" },
-//   { "className": "Salsa for Beginners", "level": "Beginner" },
-//   { "className": "Tap Dance Basics", "level": "Beginner" },
-//   { "className": "Intermediate Ballet", "level": "Intermediate" },
-//   { "className": "Intermediate Ballroom Dance", "level": "Intermediate" }
-// ]
+[
+  { "className": "Ballroom Dance for Beginners", "level": "Beginner" },
+  { "className": "Ballet for Beginners", "level": "Beginner" },
+  { "className": "Contemporary Dance Basics", "level": "Beginner" },
+  { "className": "Folk Dance Basics", "level": "Beginner" },
+  { "className": "Hip Hop Basics", "level": "Beginner" },
+  { "className": "Jazz Dance for Beginners", "level": "Beginner" },
+  { "className": "Salsa for Beginners", "level": "Beginner" },
+  { "className": "Tap Dance Basics", "level": "Beginner" },
+  { "className": "Intermediate Ballet", "level": "Intermediate" },
+  { "className": "Intermediate Ballroom Dance", "level": "Intermediate" }
+]

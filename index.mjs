@@ -7,7 +7,7 @@ import morgan from "morgan";
 import methodOverride from "method-override";
 import errorHandler from "./Middlewares/errorHandler.js"
 import seedRoutes from "./Routes/seedRoutes.mjs";
-import userRoutes from "./Routes/userRoutes.mjs";
+import userRoutes from "./Routes/dancersRoutes.mjs";
 import classRoutes from "./Routes/classRoutes.mjs";
 
 const app = express();
@@ -67,7 +67,7 @@ app.use(morgan('dev'));
 
 //  Routes
 
-app.use("/users", userRoutes);
+app.use("/dancers", dancersRoutes);
 app.use("/class", classRoutes);
 app.use("/", seedRoutes);
 
