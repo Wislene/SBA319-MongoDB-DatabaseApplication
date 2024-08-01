@@ -4,10 +4,11 @@ import dotenv from "dotenv";
 dotenv.config();
 import pug from "pug";
 import morgan from "morgan";
+import cors from 'cors';
 import methodOverride from "method-override";
 import errorHandler from "./Middlewares/errorHandler.js"
-import logRequests from './middleware/logRequests.js';
-import seedRoutes from './routes/seedRoutes.mjs';
+import logRequests from './Middlewares/errorHandler.js';
+import seedRoutes from "./Routes/seedRoutes.mjs";
 import dancersRoutes from "./Routes/dancersRoutes.mjs";
 import classRoutes from "./Routes/ classRoutes.mjs";
 
@@ -62,6 +63,7 @@ app.set("views", "./Views");
 app.set("views", path.join(__dirname, "views"));
 app.use(errorHandler);
 app.use(logRequests);
+app.use(cors());
 
 //Using Morgan for logging requests
 app.use(morgan('dev'));
