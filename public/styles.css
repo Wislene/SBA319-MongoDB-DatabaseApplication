@@ -1,5 +1,8 @@
+/* My CSS is not showing up and still workign on figuring why its not working.  I received an error in the Dev console saying: Refused to apply style from 'http://localhost:5050/public/styles.css' because its MIME type  */
+
 body {
-  background: url("../public//images/african\ drum.jpg") no-repeat center center fixed;
+  background: url("../public//images/african\ drum.jpg") no-repeat center center
+    fixed;
   background-size: cover;
   font-family: Arial, sans-serif;
   color: #333;
@@ -26,9 +29,9 @@ a:hover {
 /* links */
 .link {
   display: inline-block;
-  margin-right: 20px; 
+  margin-right: 20px;
   text-decoration: none;
-  color: blue; 
+  color: blue;
 }
 
 .link:hover {
@@ -36,5 +39,5 @@ a:hover {
 }
 
 .link + .link {
-  margin-left: 20px; 
+  margin-left: 20px;
 }

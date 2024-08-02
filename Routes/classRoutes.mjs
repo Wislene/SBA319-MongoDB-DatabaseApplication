@@ -11,6 +11,7 @@ import {
 
 const router = express.Router();
 
+
 router.get('/:id/edit', renderEditClassForm);
 router.get('/new', renderNewClassForm);
 router.get("/", getAllClasses);

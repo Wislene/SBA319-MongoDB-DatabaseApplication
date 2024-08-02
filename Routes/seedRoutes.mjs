@@ -7,6 +7,7 @@ const router = express.Router();
 // Seed route for classes
 router.get("/seed/classes", async (req, res) => {
   try {
+    await Class.deleteMany({});
     await Class.create([
       { className: "Ballroom Dance for Beginners", level: "Beginner" },
       { className: "Ballet for Beginners", level: "Beginner" },
