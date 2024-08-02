@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 Add New Class
-  form(action='/classes', method='POST')
+  form(action='/class', method='POST')
     div
       label(for='className') Class Name:
       input(type='text', name='className', id='className', required)
@@ -19,21 +19,4 @@ block content
 
 
 
-  //-     html (regular version instead of using extend version, which is a template that inherits the structure and content from a base layout file named layout.pug
-  //- head
-  //-   title Add New Dance Class
-  //- body
-  //-   h1 Add New Dance Class
-  //-   form(action='/danceClasses', method='POST')
-  //-     div
-  //-       label(for='className') Dance Class Name:
-  //-       input(type='text', name='className', id='className', required)
-  //-     div
-  //-       label(for='level') Level:
-  //-       select(name='level', id='level', required)
-  //-         option(value='Beginner') Beginner
-  //-         option(value='Intermediate') Intermediate
-  //-         option(value='Advanced') Advanced
-  //-         option(value='Professional') Professional
-  //-     div
-  //-       button(type='submit') Add Dance Class
+

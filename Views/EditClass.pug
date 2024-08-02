@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 Edit Class
-  form(action=`/classes/${classItem._id}?_method=PATCH`, method='POST')
+  form(action=`/class/${classItem._id}?_method=PATCH`, method='POST')
     div
       label(for='className') Class Name:
       input(type='text', name='className', id='className', value=classItem.className, required)

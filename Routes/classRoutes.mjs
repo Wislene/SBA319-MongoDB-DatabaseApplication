@@ -6,16 +6,18 @@ import {
   updateClass,
   deleteClass,
   renderNewClassForm,
-  renderEditClassForm
-} from "../controllers/classController.mjs";
+  renderEditClassForm,
+} from "../Controllers/classController.mjs";
 
 const router = express.Router();
 
+router.get('/:id/edit', renderEditClassForm);
+router.get('/new', renderNewClassForm);
 router.get("/", getAllClasses);
 router.post("/", createClass);
-router.get("/new", renderNewClassForm);
+router.get('/new', (req, res) => res.render('newClass'));
 router.get("/:id", getClassById);
-router.get("/:id/edit", renderEditClassForm);
+router.get('/:id/edit', (req, res) => res.render('editClass', { id: req.params.id }));
 router.patch("/:id", updateClass);
 router.delete("/:id", deleteClass);
 

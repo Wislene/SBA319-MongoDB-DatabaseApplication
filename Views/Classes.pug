@@ -1,9 +1,12 @@
-extends layout
+ extends layout
 
 block content
   h1 Classes
   ul
     each classItem in classes
       li
-        a(href=`/classes/${classItem._id}`) #{classItem.className} - #{classItem.level}
-  a(href='/classes/new') Add New Class
+        a(href=`/class/${classItem._id}`) #{classItem.className} - #{classItem.level}
+        a(href=`/class/${classItem._id}/edit`) Edit
+        form(action=`/class/${classItem._id}?_method=DELETE`, method='POST', style='display:inline')
+          button(type='submit') Delete
+  a(href='/class/new') Add New Class

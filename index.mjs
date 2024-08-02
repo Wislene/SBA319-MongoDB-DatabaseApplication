@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
+import bodyParser from 'body-parser';
 import pug from "pug";
 import morgan from "morgan";
 import cors from "cors";
@@ -12,24 +13,22 @@ import errorHandler from "./Middlewares/errorHandler.js";
 import logRequests from "./Middlewares/errorHandler.js";
 import seedRoutes from "./routes/seedRoutes.mjs";
 import dancersRoutes from "./Routes/dancersRoutes.mjs";
-import classRoutes from "./Routes/ classRoutes.mjs";
+import classRoutes from "./Routes/classRoutes.mjs";
 
 const app = express();
 
 const router = express.Router();
-
-// import bodyParser from 'body-parser'; no longer needed to use body-parser because express comes with its own parser
 
 import path from "path";
 import { fileURLToPath } from "url";
 
 app.use(express.json());
 
-// connect to Mongoose/DB
+// connect to Mongoose/MongoDB
 mongoose
   .connect(process.env.ATLAS_URI, {
-    // useNewUrlParser: true, -I removed because it says that this is a deprecated feature
-    // useUnifiedTopology: true, -I removed because it says that this is a deprecated feature
+    // useNewUrlParser: true, -I removed because it says that this is a deprecated feature in the terminal when I ran the code.
+    // useUnifiedTopology: true, -I removed because it says that this is a deprecated feature in the terminal when I ran the code.
   })
   .then((con) => {
     console.log(con.connection)
@@ -41,7 +40,7 @@ mongoose
 
 // Filename and --dirname
 
-const __filename = fileURLToPath(import.meta.url);
+const _filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname("./index.mjs");
 
@@ -58,7 +57,9 @@ app.use((err, req, res, next) => {
 
 // Middleware
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.set("view engine", "pug");
@@ -76,7 +77,7 @@ app.use(morgan("dev"));
 app.use("/dancers", dancersRoutes);
 app.use("/class", classRoutes);
 app.use("/seed", seedRoutes);
-// app.use("/", seedRoutes);
+
 
 app.get("/", (req, res) => {
   res.render("index");
